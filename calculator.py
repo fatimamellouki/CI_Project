@@ -20,4 +20,5 @@ def division(a, b):
     """Retourne le quotient de deux nombres."""
     if b == 0:
         raise ValueError("Division par zéro impossible")
+    
     return a / b

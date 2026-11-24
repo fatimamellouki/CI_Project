@@ -48,6 +48,16 @@ pipeline {
         powershell Compress-Archive -Path Release\\* -DestinationPath Release.zip -Force
         '''
     }
+    }
+    stage('Publication de l artefact') {
+    steps {
+        bat '''
+        curl -v ^
+        -u admin:1234567890 ^
+        --upload-file Release.zip ^
+        http://localhost:8081/repository/python-release/Release.zip
+        '''
+    }
 }
     }
 
